@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Button, Image} from 'react-native';
+import {View, Image} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
 import styles from './styles';
@@ -20,10 +20,12 @@ const GetStarted: React.FC = () => {
     <Background mode="splash">
       <View style={styles.container}>
         <Image source={Images.avatar} style={styles.avatar} />
-        <RoundButton
-          onPress={() => NavigationService.navigate('Auth')}
-          title="Swipe"
-        />
+        <View style={{width: '80%'}}>
+          <RoundButton
+            onPress={() => NavigationService.navigate('Auth')}
+            title="Swipe"
+          />
+        </View>
       </View>
     </Background>
   );

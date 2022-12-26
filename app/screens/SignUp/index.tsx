@@ -19,7 +19,6 @@ interface IState {
 const SignUp: React.FC = () => {
   const id = useSelector((state: IState) => state.loginReducer.id);
   const dispatch = useDispatch();
-  // const onLogin = () => dispatch(loginActions.requestLogin('test', '1234'));
   const onLogin = () => NavigationService.navigate('LogIn');
   const onTermsOfUse = () => {};
   const onPrivacyPolicy = () => {};
@@ -50,7 +49,7 @@ const SignUp: React.FC = () => {
             placeholder="Enter Referral ID"
             onChangeText={() => {}}
           />
-          <RoundButton title="Sign In" onPress={() => {}} />
+          <RoundButton title="Sign Up" onPress={() => {}} />
           <View style={styles.signupContainer}>
             <Text style={styles.signupTitle}>Already have an account? </Text>
             <TouchableOpacity onPress={onLogin}>

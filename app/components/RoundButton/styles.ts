@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import Images from 'app/theme/images';
 
 const styles = StyleSheet.create({
   button: {

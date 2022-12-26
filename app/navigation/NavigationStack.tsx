@@ -9,8 +9,7 @@ import GetStarted from 'app/screens/GetStarted';
 import Login from 'app/screens/Login';
 import SignUp from 'app/screens/SignUp';
 import ForgotPassword from 'app/screens/ForgotPassword';
-
-import Home from 'app/screens/Home';
+import HomeTab from './HomeTab';
 
 import {StatusBar} from 'react-native';
 import {ILoginState} from 'app/models/reducers/login';
@@ -45,11 +44,11 @@ const AuthNavigator = () => {
   );
 };
 
-const LoggedInNavigator = () => (
-  <LoggedInStack.Navigator>
-    <Stack.Screen name="Home" component={Home} options={headerOptions} />
-  </LoggedInStack.Navigator>
-);
+// const LoggedInNavigator = () => (
+//   <LoggedInStack.Navigator>
+//     <Stack.Screen name="Home" component={Home} options={headerOptions} />
+//   </LoggedInStack.Navigator>
+// );
 
 const App: React.FC<IProps> = (props: IProps) => {
   const {theme} = props;
@@ -72,6 +71,7 @@ const App: React.FC<IProps> = (props: IProps) => {
           component={AuthNavigator}
           options={headerOptions}
         />
+        <Stack.Screen name="Home" component={HomeTab} options={headerOptions} />
         {/* {isLoggedIn ? (
           <Stack.Screen
             name="Main"

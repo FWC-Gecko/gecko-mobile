@@ -19,7 +19,8 @@ interface IState {
 const Login: React.FC = () => {
   const id = useSelector((state: IState) => state.loginReducer.id);
   const dispatch = useDispatch();
-  const onLogin = () => dispatch(loginActions.requestLogin('test', '1234'));
+  // const onLogin = () => dispatch(loginActions.requestLogin('test', '1234'));
+  const onLogin = () => NavigationService.navigate('Home');
   const onSignUp = () => NavigationService.navigate('SignUp');
   const onForgot = () => NavigationService.navigate('ForgotPassword');
   return (

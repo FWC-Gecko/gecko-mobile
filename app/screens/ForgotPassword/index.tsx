@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 
 import * as loginActions from 'app/store/actions/loginActions';
 import styles from './styles';
