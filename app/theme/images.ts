@@ -1,19 +1,21 @@
-import SplashImage from 'app/assets/splash.png';
-import BgImage from 'app/assets/bg.png';
+import SplashBgImage from 'app/assets/bg-splash.png';
+import MainBgImage from 'app/assets/bg-main.png';
 import AvatarImage from 'app/assets/avatar.png';
-import RoundButtonImage from 'app/assets/round-button.png';
+import RoundButtonBgImage from 'app/assets/bg-round-button.png';
 import ProfileDefaultAvatarImage from 'app/assets/profile-avatar-default.png';
-import HeaderImage from 'app/assets/header.png';
+import HeaderBgImage from 'app/assets/bg-header.png';
 import DiamondImage from 'app/assets/diamond.png';
+import PriceListItemBgImage from 'app/assets/bg-price-list-item.png';
 
 const Images = {
-  splash: SplashImage,
-  background: BgImage,
+  bg_splash: SplashBgImage,
+  bg_main: MainBgImage,
   avatar: AvatarImage,
-  round_button: RoundButtonImage,
+  bg_round_button: RoundButtonBgImage,
   profile_default_avatar: ProfileDefaultAvatarImage,
-  header: HeaderImage,
+  bg_header: HeaderBgImage,
   diamond: DiamondImage,
+  bg_price_list_item: PriceListItemBgImage,
 };
 
 export default Images;

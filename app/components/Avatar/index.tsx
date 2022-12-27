@@ -4,7 +4,7 @@ import {View} from 'react-native';
 import styles from './styles';
 
 const Avatar: React.FC = () => {
-  return <View></View>;
+  return <View />;
 };
 
 export default Avatar;

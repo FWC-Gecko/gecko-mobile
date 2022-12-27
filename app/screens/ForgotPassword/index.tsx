@@ -19,7 +19,7 @@ const ForgotPassword: React.FC = () => {
   const id = useSelector((state: IState) => state.loginReducer.id);
   const dispatch = useDispatch();
   const onSend = () => {};
-  const onBack = () => {};
+  const onBack = () => NavigationService.navigate('LogIn');
   return (
     <Background mode="default">
       <View style={styles.container}>

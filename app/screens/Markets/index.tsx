@@ -16,22 +16,24 @@ const Markets: React.FC = () => {
     <Background mode="default">
       <View style={styles.container}>
         <Header mode="profile" />
-        <TopNavigation
-          pages={[
-            {
-              title: 'Coins',
-              component: () => <Coins />,
-            },
-            {
-              title: 'Watchlists',
-              component: () => <Watchlists />,
-            },
-            {
-              title: 'Chains',
-              component: () => <Chains />,
-            },
-          ]}
-        />
+        <View style={styles.content}>
+          <TopNavigation
+            pages={[
+              {
+                title: 'Coins',
+                component: () => <Coins />,
+              },
+              {
+                title: 'Watchlists',
+                component: () => <Watchlists />,
+              },
+              {
+                title: 'Chains',
+                component: () => <Chains />,
+              },
+            ]}
+          />
+        </View>
       </View>
     </Background>
   );

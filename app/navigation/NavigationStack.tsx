@@ -61,17 +61,18 @@ const App: React.FC<IProps> = (props: IProps) => {
       <StatusBar barStyle={theme.dark ? 'light-content' : 'dark-content'} />
 
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="GetStarted"
           component={GetStarted}
           options={headerOptions}
-        />
+        /> */}
         <Stack.Screen
           name="Auth"
           component={AuthNavigator}
           options={headerOptions}
         />
         <Stack.Screen name="Home" component={HomeTab} options={headerOptions} />
+
         {/* {isLoggedIn ? (
           <Stack.Screen
             name="Main"

@@ -7,15 +7,16 @@ import {SearchIcon, FavoriteIcon, ExportIcon, BackIcon} from 'app/theme/icons';
 
 interface HeaderProps {
   mode: 'profile' | 'detail';
+  style?: any;
 }
 
-const Header: React.FC<HeaderProps> = ({mode}) => {
+const Header: React.FC<HeaderProps> = ({mode, style}) => {
   const onProfileAvatar = () => {};
   const onDiamond = () => {};
   const onSearch = () => {};
   return (
-    <View style={styles.header}>
-      <Image source={Images.header} style={styles.bg} />
+    <View style={[styles.header, style]}>
+      <Image source={Images.bg_header} style={styles.bg} />
       <View style={styles.content}>
         <View style={styles.leftSide}>
           {mode === 'detail' && (

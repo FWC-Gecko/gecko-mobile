@@ -15,12 +15,12 @@ const Background: React.FC<BackgroundProps> = ({
 }) => {
   return mode === 'default' ? (
     <View style={styles.container}>
-      <Image style={styles.image} source={Images.background} />
+      <Image style={styles.image} source={Images.bg_main} />
       {children}
     </View>
   ) : (
     <View style={styles.container}>
-      <Image style={styles.image} source={Images.splash} />
+      <Image style={styles.image} source={Images.bg_splash} />
       {children}
     </View>
   );

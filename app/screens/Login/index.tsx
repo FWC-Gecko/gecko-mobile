@@ -1,7 +1,8 @@
-import React from 'react';
-import {View, Text, Image} from 'react-native';
+import React, {useEffect, useCallback} from 'react';
+import {View, Text, Image, AppState, AppStateStatus} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import SplashScreen from 'react-native-splash-screen';
 
 import * as loginActions from 'app/store/actions/loginActions';
 import styles from './styles';
@@ -23,6 +24,28 @@ const Login: React.FC = () => {
   const onLogin = () => NavigationService.navigate('Home');
   const onSignUp = () => NavigationService.navigate('SignUp');
   const onForgot = () => NavigationService.navigate('ForgotPassword');
+
+  const onAppStateChange = useCallback((nextAppState: AppStateStatus) => {
+    if (nextAppState !== 'active') {
+      SplashScreen.show(); // <--- not working
+    } else {
+      SplashScreen.hide();
+    }
+  }, []);
+
+  useEffect(() => {
+    SplashScreen.hide();
+
+    const subscription = AppState.addEventListener('change', onAppStateChange);
+    return () => {
+      subscription.remove();
+    };
+  }, []);
+
+  useEffect(() => {
+    SplashScreen.hide();
+  });
+
   return (
     <Background mode="default">
       <View style={styles.container}>
