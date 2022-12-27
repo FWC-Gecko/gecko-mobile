@@ -3,7 +3,6 @@ import {View} from 'react-native';
 
 import Coins from 'app/screens/Coins';
 import Watchlists from 'app/screens/Watchlists';
-import Chains from 'app/screens/Chains';
 
 import Background from 'app/components/Background';
 import Header from 'app/components/Header';
@@ -26,10 +25,6 @@ const Markets: React.FC = () => {
               {
                 title: 'Watchlists',
                 component: () => <Watchlists />,
-              },
-              {
-                title: 'Chains',
-                component: () => <Chains />,
               },
             ]}
           />

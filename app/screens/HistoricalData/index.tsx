@@ -3,8 +3,8 @@ import {View, Text} from 'react-native';
 
 import styles from './styles';
 
-const Chains: React.FC = () => {
+const HistoricalData: React.FC = () => {
   return <View style={styles.container} />;
 };
 
-export default Chains;
+export default HistoricalData;

@@ -4,6 +4,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import styles from './styles';
 import Images from 'app/theme/images';
 import {SearchIcon, FavoriteIcon, ExportIcon, BackIcon} from 'app/theme/icons';
+import NavigationService from 'app/navigation/NavigationService';
 
 interface HeaderProps {
   mode: 'profile' | 'detail';
@@ -14,15 +15,28 @@ const Header: React.FC<HeaderProps> = ({mode, style}) => {
   const onProfileAvatar = () => {};
   const onDiamond = () => {};
   const onSearch = () => {};
+  const onBack = () => NavigationService.goBack();
   return (
     <View style={[styles.header, style]}>
       <Image source={Images.bg_header} style={styles.bg} />
       <View style={styles.content}>
         <View style={styles.leftSide}>
           {mode === 'detail' && (
-            <TouchableOpacity onPress={onDiamond}>
-              <BackIcon color="#B9C1D9" size={18} />
-            </TouchableOpacity>
+            <>
+              <TouchableOpacity onPress={onBack}>
+                <BackIcon color="#B9C1D9" size={18} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={onProfileAvatar}>
+                <Image
+                  source={Images.profile_default_avatar}
+                  style={styles.profileAvatar}
+                />
+              </TouchableOpacity>
+              <View style={{marginLeft: 10}}>
+                <Text style={{color: 'white'}}>USDT</Text>
+                <Text style={{color: '#B9C1D9'}}>#3</Text>
+              </View>
+            </>
           )}
           {mode === 'profile' && (
             <>

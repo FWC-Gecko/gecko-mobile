@@ -1,7 +1,11 @@
-import React from 'react';
-import {View, FlatList} from 'react-native';
+import React, {useState} from 'react';
+import {View, FlatList, Text, Pressable} from 'react-native';
+
+import NavigationService from 'app/navigation/NavigationService';
 
 import PriceListItem from 'app/components/PriceListItem';
+
+import {UpIcon, DownIcon} from 'app/theme/icons';
 
 import styles from './styles';
 
@@ -81,8 +85,33 @@ const data = [
 ];
 
 const PriceList: React.FC<PriceListProps> = () => {
+  const [priceSort, setPriceSort] = useState(false);
+  const [daySort, setDaySort] = useState(false);
+  const onPriceSort = () => {
+    setPriceSort(!priceSort);
+  };
+  const onDayPercentSort = () => {
+    setDaySort(!daySort);
+  };
   return (
     <View style={styles.container}>
+      <View style={{flexDirection: 'row', marginVertical: 5}}>
+        <View style={styles.leftSide}>
+          <Text style={styles.text}>Market Cap</Text>
+        </View>
+        <Pressable style={styles.leftSide} onPress={onPriceSort}>
+          <Text style={styles.text}>Price(USD)</Text>
+          {priceSort ? (
+            <UpIcon color="#A7A7A7" />
+          ) : (
+            <DownIcon color="#A7A7A7" />
+          )}
+        </Pressable>
+        <Pressable style={styles.rightSide} onPress={onDayPercentSort}>
+          <Text style={styles.text}>24h%</Text>
+          {daySort ? <UpIcon color="#A7A7A7" /> : <DownIcon color="#A7A7A7" />}
+        </Pressable>
+      </View>
       <FlatList
         data={data}
         renderItem={({item}) => (
@@ -92,7 +121,7 @@ const PriceList: React.FC<PriceListProps> = () => {
             marketCap={item.marketCap}
             price={item.price}
             dayPercent={item.dayPercent}
-            onPress={() => {}}
+            onPress={() => NavigationService.navigate('CoinDetail')}
           />
         )}
         keyExtractor={item => item.name}
