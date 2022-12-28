@@ -15,12 +15,15 @@ const Background: React.FC<BackgroundProps> = ({
 }) => {
   return mode === 'default' ? (
     <View style={styles.container}>
-      <Image style={styles.image} source={Images.bg_main} />
+      <Image style={styles.default} source={Images.bg_main} />
       {children}
     </View>
   ) : (
     <View>
-      <Image style={styles.image} source={Images.bg_gradient} />
+      <Image
+        style={[styles.default, styles.gradient]}
+        source={Images.bg_gradient}
+      />
       {children}
     </View>
   );
