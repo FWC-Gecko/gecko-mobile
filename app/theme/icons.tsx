@@ -66,6 +66,18 @@ export const SwapVertIcon: React.FC<IconProps> = ({color, size}) => (
   <IoniconsIcon name="swap-vertical" color={color} size={size} />
 );
 
+export const CommentIcon: React.FC<IconProps> = ({color, size}) => (
+  <FontAwesomeIcon name="comment" color={color} size={size} />
+);
+
+export const SyncIcon: React.FC<IconProps> = ({color, size}) => (
+  <AntDesignIcon name="sync" color={color} size={size} />
+);
+
+export const HeartIcon: React.FC<IconProps> = ({color, size}) => (
+  <FeatherIcon name="heart" color={color} size={size} />
+);
+
 export const BadgeIcon: React.FC = () => (
   <Image source={Images.badge} style={styles.badge} />
 );

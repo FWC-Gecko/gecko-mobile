@@ -4,8 +4,6 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {ILoginState} from 'app/models/reducers/login';
 
-import NavigationService from 'app/navigation/NavigationService';
-
 import Overview from 'app/screens/Overview';
 import LiveChat from 'app/screens/LiveChat';
 import HistoricalData from 'app/screens/HistoricalData';
@@ -13,8 +11,6 @@ import HistoricalData from 'app/screens/HistoricalData';
 import Background from 'app/components/Background';
 import Header from 'app/components/Header';
 import TopNavigation from 'app/components/TopNavigation';
-
-import Images from 'app/theme/images';
 
 import styles from './styles';
 

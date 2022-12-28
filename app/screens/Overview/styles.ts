@@ -48,8 +48,10 @@ const styles = StyleSheet.create({
   unSelectPeriod: {color: 'white', padding: 5},
   chart: {
     width: '100%',
-    paddingVertical: 10,
     marginVertical: 10,
+  },
+  chartSmall: {
+    paddingVertical: 10,
   },
   customChartLabel: {
     color: 'white',

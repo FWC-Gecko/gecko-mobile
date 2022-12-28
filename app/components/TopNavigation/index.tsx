@@ -1,6 +1,5 @@
 import React, {useState, useRef} from 'react';
 import {View, Text, Pressable} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import PagerView from 'react-native-pager-view';
 import styles from './styles';
 

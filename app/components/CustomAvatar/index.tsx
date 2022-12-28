@@ -8,7 +8,7 @@ import styles from './styles';
 interface CustomAvatarProps {
   avatar?: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   titleSize?: number;
   subtitleSize?: number;
   Stick?: React.FC;
@@ -42,9 +42,11 @@ const CustomAvatar: React.FC<CustomAvatarProps> = ({
         ) : (
           <Text style={[styles.title, {fontSize: titleSize}]}>{title}</Text>
         )}
-        <Text style={[styles.subtitle, {fontSize: subtitleSize}]}>
-          {subtitle}
-        </Text>
+        {subtitle && subtitle.length && (
+          <Text style={[styles.subtitle, {fontSize: subtitleSize}]}>
+            {subtitle}
+          </Text>
+        )}
       </View>
     </View>
   );

@@ -7,8 +7,8 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     marginHorizontal: 15,
-    marginTop: 15,
-    marginBottom: 60,
+    marginTop: 10,
+    marginBottom: 55,
   },
 });
 

@@ -1,4 +1,4 @@
-import SplashBgImage from 'app/assets/bg-splash.png';
+import GradientBgImage from 'app/assets/bg-gradient.png';
 import MainBgImage from 'app/assets/bg-main.png';
 import AvatarImage from 'app/assets/avatar.png';
 import RoundButtonBgImage from 'app/assets/bg-round-button.png';
@@ -9,7 +9,7 @@ import PriceListItemBgImage from 'app/assets/bg-price-list-item.png';
 import BadgeImage from 'app/assets/badge.png';
 
 const Images = {
-  bg_splash: SplashBgImage,
+  bg_gradient: GradientBgImage,
   bg_main: MainBgImage,
   avatar: AvatarImage,
   bg_round_button: RoundButtonBgImage,

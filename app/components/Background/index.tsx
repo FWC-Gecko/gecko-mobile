@@ -6,7 +6,7 @@ import styles from './styles';
 
 interface BackgroundProps {
   children: React.ReactNode;
-  mode: 'default' | 'splash';
+  mode: 'default' | 'gradient';
 }
 
 const Background: React.FC<BackgroundProps> = ({
@@ -19,8 +19,8 @@ const Background: React.FC<BackgroundProps> = ({
       {children}
     </View>
   ) : (
-    <View style={styles.container}>
-      <Image style={styles.image} source={Images.bg_splash} />
+    <View>
+      <Image style={styles.image} source={Images.bg_gradient} />
       {children}
     </View>
   );

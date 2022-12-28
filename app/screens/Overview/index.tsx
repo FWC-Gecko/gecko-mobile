@@ -13,6 +13,9 @@ import {
 import PercentPad from 'app/components/PercentPad';
 import CustomAvatar from 'app/components/CustomAvatar';
 import RoundButton from 'app/components/RoundButton';
+import Background from 'app/components/Background';
+
+import Images from 'app/theme/images';
 
 import styles from './styles';
 
@@ -121,29 +124,33 @@ const Overview: React.FC = () => {
         </View>
         {/* Chart */}
         <View style={styles.chart}>
-          <LineChart
-            thickness={2}
-            color="#FF2CDF"
-            maxValue={100}
-            noOfSections={6}
-            areaChart
-            yAxisTextStyle={styles.chartYAxis}
-            data={data}
-            data2={data1}
-            color2={'#56acce'}
-            startFillColor={'#FEF0EE'}
-            endFillColor={'#FEF0EE'}
-            startOpacity={0.2}
-            endOpacity={0.01}
-            spacing={80}
-            rulesColor="gray"
-            rulesType="solid"
-            initialSpacing={10}
-            hideDataPoints
-            hideRules
-            xAxisColor={'#FFFFFF00'}
-            yAxisColor={'#FFFFFF00'}
-          />
+          <Background mode="gradient">
+            <View style={styles.chartSmall}>
+              <LineChart
+                thickness={2}
+                color="#FF2CDF"
+                maxValue={100}
+                noOfSections={6}
+                areaChart
+                yAxisTextStyle={styles.chartYAxis}
+                data={data}
+                data2={data1}
+                color2={'#56acce'}
+                startFillColor={'#FEF0EE'}
+                endFillColor={'#FEF0EE'}
+                startOpacity={0.2}
+                endOpacity={0.01}
+                spacing={80}
+                rulesColor="gray"
+                rulesType="solid"
+                initialSpacing={10}
+                hideDataPoints
+                hideRules
+                xAxisColor={'#FFFFFF00'}
+                yAxisColor={'#FFFFFF00'}
+              />
+            </View>
+          </Background>
         </View>
       </View>
       {/* Bottom */}
