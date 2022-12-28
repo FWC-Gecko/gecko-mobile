@@ -2,12 +2,19 @@ import React from 'react';
 import {View, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-import Images from 'app/theme/images';
-import {SearchIcon, FavoriteIcon, ExportIcon, BackIcon} from 'app/theme/icons';
-
 import NavigationService from 'app/navigation/NavigationService';
 
 import CustomAvatar from 'app/components/CustomAvatar';
+
+import Images from 'app/theme/images';
+
+import {
+  SearchIcon,
+  FavoriteIcon,
+  ExportIcon,
+  BackIcon,
+  DiamondIcon,
+} from 'app/theme/icons';
 
 import styles from './styles';
 
@@ -39,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({mode, style}) => {
           {mode === 'profile' && (
             <TouchableOpacity onPress={onDiamond}>
               <View style={styles.button}>
-                <Image source={Images.diamond} />
+                <DiamondIcon size={16} />
               </View>
             </TouchableOpacity>
           )}

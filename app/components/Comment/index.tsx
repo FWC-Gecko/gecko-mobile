@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 
 import Background from 'app/components/Background';
 import CustomAvatar from 'app/components/CustomAvatar';
+import BBButton from 'app/components/BBButton';
 
 import {CommentIcon, SyncIcon, HeartIcon, EllipsisIcon} from 'app/theme/icons';
 
@@ -15,7 +16,11 @@ const Comment: React.FC<CommentProps> = () => {
     <View style={styles.container}>
       <Background mode="gradient">
         <View style={styles.contentContainer}>
-          <CustomAvatar title="Olive Yew" subtitle="@Olive Yew - 18 Dec" />
+          <CustomAvatar
+            title="Olive Yew"
+            subtitle="@Olive Yew - 18 Dec"
+            Stick={() => <BBButton mode="bullish" color="dark" />}
+          />
           <Text style={styles.description}>
             Lorem lpsum is simply dummy text Lorem lpsum is simply dummy text
             Lorem lpsum is simply dummy text Lorem lpsum is simply dummy text

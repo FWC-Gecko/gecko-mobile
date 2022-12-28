@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, FlatList} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {ILoginState} from 'app/models/reducers/login';
@@ -9,8 +9,6 @@ import BBButton from 'app/components/BBButton';
 import RoundInput from 'app/components/RoundInput';
 import Background from 'app/components/Background';
 import Comment from 'app/components/Comment';
-
-import Images from 'app/theme/images';
 
 import styles from './styles';
 

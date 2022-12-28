@@ -8,7 +8,7 @@ import styles from './styles';
 interface BBButtonProps {
   mode: 'bullish' | 'bearish';
   color: 'light' | 'dark';
-  onPress: () => void;
+  onPress?: () => void;
 }
 
 const capitalizeFirstLetter = (string: string) =>
@@ -16,12 +16,14 @@ const capitalizeFirstLetter = (string: string) =>
 
 const BBButton: React.FC<BBButtonProps> = ({mode, color, onPress}) => {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <>
       {mode === 'bullish' && color === 'light' && (
-        <View style={[styles.container, styles.light]}>
-          <UpIcon color="#14C881" />
-          <Text style={styles.text}>{capitalizeFirstLetter(mode)}</Text>
-        </View>
+        <TouchableOpacity onPress={onPress}>
+          <View style={[styles.container, styles.light]}>
+            <UpIcon color="#14C881" />
+            <Text style={styles.text}>{capitalizeFirstLetter(mode)}</Text>
+          </View>
+        </TouchableOpacity>
       )}
       {mode === 'bullish' && color === 'dark' && (
         <View style={[styles.container, styles.bullishDark]}>
@@ -30,10 +32,12 @@ const BBButton: React.FC<BBButtonProps> = ({mode, color, onPress}) => {
         </View>
       )}
       {mode === 'bearish' && color === 'light' && (
-        <View style={[styles.container, styles.light]}>
-          <DownIcon color="#DF2040" />
-          <Text style={styles.text}>{capitalizeFirstLetter(mode)}</Text>
-        </View>
+        <TouchableOpacity onPress={onPress}>
+          <View style={[styles.container, styles.light]}>
+            <DownIcon color="#DF2040" />
+            <Text style={styles.text}>{capitalizeFirstLetter(mode)}</Text>
+          </View>
+        </TouchableOpacity>
       )}
       {mode === 'bearish' && color === 'dark' && (
         <View style={[styles.container, styles.bearishDark]}>
@@ -41,7 +45,7 @@ const BBButton: React.FC<BBButtonProps> = ({mode, color, onPress}) => {
           <Text style={styles.text}>{capitalizeFirstLetter(mode)}</Text>
         </View>
       )}
-    </TouchableOpacity>
+    </>
   );
 };
 

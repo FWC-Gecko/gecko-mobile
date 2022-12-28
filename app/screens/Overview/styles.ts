@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
   priceTextOne: {color: '#C2C2C2', marginHorizontal: 5},
-  priceTextTwo: {color: '#14C881', marginHorizontal: 5},
   priceTextThree: {color: 'white', fontSize: 18},
   priceLeftSide: {
     flex: 1,
