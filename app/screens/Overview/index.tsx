@@ -14,6 +14,7 @@ import PercentPad from 'app/components/PercentPad';
 import CustomAvatar from 'app/components/CustomAvatar';
 import RoundButton from 'app/components/RoundButton';
 import Background from 'app/components/Background';
+import UDPad from 'app/components/UDPad';
 
 import Images from 'app/theme/images';
 
@@ -93,8 +94,7 @@ const Overview: React.FC = () => {
           <View style={styles.priceLeftSmallSide}>
             <SwapVertIcon color="#C2C2C2" />
             <Text style={styles.priceTextOne}>0.00005954</Text>
-            <UpIcon color="#14C881" />
-            <Text style={styles.priceTextTwo}>177.32%</Text>
+            <UDPad value={177.32} suffix="%" />
           </View>
         </View>
         <View style={styles.priceRightSide}>
@@ -160,7 +160,7 @@ const Overview: React.FC = () => {
           subtitle="1.9M Followers"
           titleSize={14}
           subtitleSize={10}
-          Stick={() => <BadgeIcon />}
+          Stick={() => <BadgeIcon size={16} />}
         />
         <View style={styles.bottomRightSide}>
           <RoundButton title="+ Follow" onPress={() => {}} />
