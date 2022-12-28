@@ -18,6 +18,10 @@ const styles = StyleSheet.create({
   text: {
     color: '#A7A7A7',
   },
+  menuContainer: {
+    flexDirection: 'row',
+    marginVertical: 5,
+  },
 });
 
 export default styles;

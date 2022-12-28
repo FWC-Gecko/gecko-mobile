@@ -1,10 +1,15 @@
 import React from 'react';
-import {View, Image, Text} from 'react-native';
+import {View, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import styles from './styles';
+
 import Images from 'app/theme/images';
 import {SearchIcon, FavoriteIcon, ExportIcon, BackIcon} from 'app/theme/icons';
+
 import NavigationService from 'app/navigation/NavigationService';
+
+import CustomAvatar from 'app/components/CustomAvatar';
+
+import styles from './styles';
 
 interface HeaderProps {
   mode: 'profile' | 'detail';
@@ -12,7 +17,6 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({mode, style}) => {
-  const onProfileAvatar = () => {};
   const onDiamond = () => {};
   const onSearch = () => {};
   const onBack = () => NavigationService.goBack();
@@ -26,32 +30,10 @@ const Header: React.FC<HeaderProps> = ({mode, style}) => {
               <TouchableOpacity onPress={onBack}>
                 <BackIcon color="#B9C1D9" size={18} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={onProfileAvatar}>
-                <Image
-                  source={Images.profile_default_avatar}
-                  style={styles.profileAvatar}
-                />
-              </TouchableOpacity>
-              <View style={{marginLeft: 10}}>
-                <Text style={{color: 'white'}}>USDT</Text>
-                <Text style={{color: '#B9C1D9'}}>#3</Text>
-              </View>
+              <CustomAvatar title="USDT" subtitle="#3" />
             </>
           )}
-          {mode === 'profile' && (
-            <>
-              <TouchableOpacity onPress={onProfileAvatar}>
-                <Image
-                  source={Images.profile_default_avatar}
-                  style={styles.profileAvatar}
-                />
-              </TouchableOpacity>
-              <View style={{marginLeft: 10}}>
-                <Text style={{color: 'white'}}>ETH Gas</Text>
-                <Text style={{color: '#B9C1D9'}}>23 Gwei</Text>
-              </View>
-            </>
-          )}
+          {mode === 'profile' && <CustomAvatar title="USDT" subtitle="#3" />}
         </View>
         <View style={styles.rightSide}>
           {mode === 'profile' && (

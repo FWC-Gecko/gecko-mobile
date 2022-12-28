@@ -6,6 +6,7 @@ import ProfileDefaultAvatarImage from 'app/assets/profile-avatar-default.png';
 import HeaderBgImage from 'app/assets/bg-header.png';
 import DiamondImage from 'app/assets/diamond.png';
 import PriceListItemBgImage from 'app/assets/bg-price-list-item.png';
+import BadgeImage from 'app/assets/badge.png';
 
 const Images = {
   bg_splash: SplashBgImage,
@@ -16,6 +17,7 @@ const Images = {
   bg_header: HeaderBgImage,
   diamond: DiamondImage,
   bg_price_list_item: PriceListItemBgImage,
+  badge: BadgeImage,
 };
 
 export default Images;

@@ -15,7 +15,7 @@ interface IState {
 const LiveChat: React.FC = () => {
   const id = useSelector((state: IState) => state.loginReducer.id);
   const dispatch = useDispatch();
-  return <View style={styles.container}></View>;
+  return <View style={styles.container} />;
 };
 
 export default LiveChat;

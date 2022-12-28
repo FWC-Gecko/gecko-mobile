@@ -18,11 +18,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 10,
   },
-  profileAvatar: {
-    width: 32,
-    height: 32,
-    borderRadius: 50,
-  },
   button: {
     justifyContent: 'center',
     alignItems: 'center',

@@ -18,7 +18,7 @@ const TopNavigation: React.FC<TopNavigationProps> = ({pages}) => {
 
   const pagerViewRef = useRef(null);
   const onPage = (page: number) => {
-    if (pageNumber != page) {
+    if (pageNumber !== page) {
       setPageNumber(page);
       pagerViewRef.current.setPage(page);
     }

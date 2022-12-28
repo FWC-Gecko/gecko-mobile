@@ -57,7 +57,7 @@ const MarketsNavigator = () => {
   return (
     <MarketsStack.Navigator>
       <Stack.Screen
-        name="Markets"
+        name="MarketsHome"
         component={Markets}
         options={headerOptions}
       />

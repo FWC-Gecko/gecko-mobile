@@ -95,7 +95,8 @@ const PriceList: React.FC<PriceListProps> = () => {
   };
   return (
     <View style={styles.container}>
-      <View style={{flexDirection: 'row', marginVertical: 5}}>
+      {/* Menu */}
+      <View style={styles.menuContainer}>
         <View style={styles.leftSide}>
           <Text style={styles.text}>Market Cap</Text>
         </View>
