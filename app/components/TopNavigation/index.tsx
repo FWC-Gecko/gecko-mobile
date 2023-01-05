@@ -10,9 +10,13 @@ interface PageProps {
 
 interface TopNavigationProps {
   pages: PageProps[];
+  titleSize: number;
 }
 
-const TopNavigation: React.FC<TopNavigationProps> = ({pages}) => {
+const TopNavigation: React.FC<TopNavigationProps> = ({
+  pages,
+  titleSize = 14,
+}) => {
   const [pageNumber, setPageNumber] = useState(0);
 
   const pagerViewRef = useRef(null);
@@ -22,6 +26,7 @@ const TopNavigation: React.FC<TopNavigationProps> = ({pages}) => {
       pagerViewRef.current.setPage(page);
     }
   };
+
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
@@ -31,14 +36,18 @@ const TopNavigation: React.FC<TopNavigationProps> = ({pages}) => {
               key={index}
               style={styles.activeTitleView}
               onPress={() => onPage(index)}>
-              <Text style={styles.title}>{page.title}</Text>
+              <Text style={[styles.title, {fontSize: titleSize}]}>
+                {page.title}
+              </Text>
             </Pressable>
           ) : (
             <Pressable
               key={index}
               style={styles.titleView}
               onPress={() => onPage(index)}>
-              <Text style={styles.title}>{page.title}</Text>
+              <Text style={[styles.title, {fontSize: titleSize}]}>
+                {page.title}
+              </Text>
             </Pressable>
           ),
         )}

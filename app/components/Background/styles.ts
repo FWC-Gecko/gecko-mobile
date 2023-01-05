@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  image: {
+  default: {
     position: 'absolute',
     top: 0,
     left: 0,
@@ -12,6 +12,8 @@ const styles = StyleSheet.create({
     right: 0,
     width: '100%',
     height: '100%',
+  },
+  gradient: {
     borderRadius: 10,
   },
 });

@@ -1,8 +1,8 @@
 import React from 'react';
 import {View} from 'react-native';
 
-import Coins from 'app/screens/Coins';
-import Watchlists from 'app/screens/Watchlists';
+import Coins from './Coins';
+import Watchlists from './Watchlists';
 
 import Background from 'app/components/Background';
 import Header from 'app/components/Header';

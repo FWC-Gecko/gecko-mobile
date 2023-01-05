@@ -12,6 +12,7 @@ import SignUp from 'app/screens/SignUp';
 import ForgotPassword from 'app/screens/ForgotPassword';
 import Markets from 'app/screens/Markets';
 import CoinDetail from 'app/screens/CoinDetail';
+import ListToken from 'app/screens/ListToken';
 
 import {ILoginState} from 'app/models/reducers/login';
 
@@ -99,7 +100,7 @@ const HomeTab: React.FC = () => {
         />
         <Tab.Screen
           name="Explore"
-          component={Markets}
+          component={ListToken}
           options={{
             tabBarIcon: ({color}) => (
               <View style={styles.center}>

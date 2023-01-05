@@ -6,6 +6,7 @@ import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome5';
 import FoundationIcon from 'react-native-vector-icons/Foundation';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import EntypoIcon from 'react-native-vector-icons/Entypo';
 
 import Images from 'app/theme/images';
 
@@ -80,6 +81,14 @@ export const SyncIcon: React.FC<FontIconProps> = ({color, size}) => (
 
 export const HeartIcon: React.FC<FontIconProps> = ({color, size}) => (
   <FeatherIcon name="heart" color={color} size={size} />
+);
+
+export const EyeIcon: React.FC<FontIconProps> = ({color, size}) => (
+  <EntypoIcon name="eye" color={color} size={size} />
+);
+
+export const EyeWithLineIcon: React.FC<FontIconProps> = ({color, size}) => (
+  <EntypoIcon name="eye-with-line" color={color} size={size} />
 );
 
 export const BadgeIcon: React.FC<ImageIconProps> = ({size}) => (
