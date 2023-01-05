@@ -5,7 +5,9 @@ const height = Dimensions.get('screen').height;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
+    width,
+    height: height - 30,
   },
   avatarBackground: {
     width,

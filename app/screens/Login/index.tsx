@@ -3,6 +3,7 @@ import {View, Text, Image, AppState, AppStateStatus} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import SplashScreen from 'react-native-splash-screen';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 import * as loginActions from 'app/store/actions/loginActions';
 import styles from './styles';
@@ -48,37 +49,41 @@ const Login: React.FC = () => {
 
   return (
     <Background mode="default">
-      <View style={styles.container}>
-        <View style={styles.avatarBackground}>
-          <Image source={Images.avatar} style={styles.avatar} />
-        </View>
-        <View style={styles.content}>
-          <Text style={styles.title}>Sign In</Text>
-          <RoundInput
-            type="email"
-            label="Email Address"
-            placeholder="Enter Email Address"
-            onChangeText={() => {}}
-          />
-          <RoundInput
-            type="password"
-            label="Password"
-            placeholder="Enter Password"
-            onChangeText={() => {}}
-            comment="Minimum Length Of 8 Characters"
-          />
-          <TouchableOpacity onPress={onForgot}>
-            <Text style={styles.forgot}>Forgot password?</Text>
-          </TouchableOpacity>
-          <RoundButton title="Sign In" onPress={onLogin} />
-          <View style={styles.signupContainer}>
-            <Text style={styles.signupTitle}>You don't have an account? </Text>
-            <TouchableOpacity onPress={onSignUp}>
-              <Text style={styles.signup}>Sign Up</Text>
+      <KeyboardAwareScrollView>
+        <View style={styles.container}>
+          <View style={styles.avatarBackground}>
+            <Image source={Images.avatar} style={styles.avatar} />
+          </View>
+          <View style={styles.content}>
+            <Text style={styles.title}>Sign In</Text>
+            <RoundInput
+              type="email"
+              label="Email Address"
+              placeholder="Enter Email Address"
+              onChangeText={() => {}}
+            />
+            <RoundInput
+              type="password"
+              label="Password"
+              placeholder="Enter Password"
+              onChangeText={() => {}}
+              comment="Minimum Length Of 8 Characters"
+            />
+            <TouchableOpacity onPress={onForgot}>
+              <Text style={styles.forgot}>Forgot password?</Text>
             </TouchableOpacity>
+            <RoundButton title="Sign In" onPress={onLogin} />
+            <View style={styles.signupContainer}>
+              <Text style={styles.signupTitle}>
+                You don't have an account?{' '}
+              </Text>
+              <TouchableOpacity onPress={onSignUp}>
+                <Text style={styles.signup}>Sign Up</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-      </View>
+      </KeyboardAwareScrollView>
     </Background>
   );
 };

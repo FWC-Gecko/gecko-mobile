@@ -14,6 +14,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginVertical: 5,
   },
+  selectContainer: {
+    backgroundColor: '#C4C4C422',
+    borderRadius: 10,
+    marginVertical: 5,
+  },
   input: {
     padding: 0,
     color: 'white',
@@ -26,6 +31,19 @@ const styles = StyleSheet.create({
     color: '#7D7582',
     fontSize: 12,
   },
+  //  Select Box
+  selectButtonStyle: {
+    backgroundColor: '#FFFFFF00',
+    width: '100%',
+    height: 40,
+  },
+  selectButtonTextStyle: {
+    color: 'white',
+    fontSize: 16,
+  },
+  selectDropdownStyle: {backgroundColor: '#212126'},
+  selectRowStyle: {borderBottomWidth: 0},
+  selectRowTextStyle: {color: 'white'},
 });
 
 export default styles;

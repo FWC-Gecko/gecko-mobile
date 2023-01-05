@@ -4,9 +4,9 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {ILoginState} from 'app/models/reducers/login';
 
-import Overview from 'app/screens/Overview';
-import LiveChat from 'app/screens/LiveChat';
-import HistoricalData from 'app/screens/HistoricalData';
+import Overview from './Overview';
+import LiveChat from './LiveChat';
+import HistoricalData from './HistoricalData';
 
 import Background from 'app/components/Background';
 import Header from 'app/components/Header';
