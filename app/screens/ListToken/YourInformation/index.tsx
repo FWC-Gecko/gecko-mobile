@@ -50,7 +50,7 @@ const YourInformation: React.FC = () => {
               onChangeText={() => {}}
             />
             <RoundInput
-              type="text"
+              type="calendar"
               label="Your Telegram @Username"
               placeholder="Enter Telegram Id"
               onChangeText={() => {}}

@@ -2,8 +2,14 @@ import React, {useState} from 'react';
 import {View, TextInput, Text} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import SelectDropdown from 'react-native-select-dropdown';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
-import {EyeIcon, EyeWithLineIcon, DownIcon} from 'app/theme/icons';
+import {
+  EyeIcon,
+  EyeWithLineIcon,
+  DownIcon,
+  CalendarIcon,
+} from 'app/theme/icons';
 
 import styles from './styles';
 
@@ -11,7 +17,14 @@ interface RoundInputProps {
   label?: string;
   data?: string[]; //  Select Box
   defaultButtonText?: string; //  Select Box
-  type: 'text' | 'email' | 'password' | 'date' | 'number' | 'select';
+  type:
+    | 'text'
+    | 'email'
+    | 'password'
+    | 'date'
+    | 'number'
+    | 'select'
+    | 'calendar';
   placeholder: string;
   onChangeText: () => void;
   comment?: string;
@@ -26,6 +39,7 @@ const RoundInput: React.FC<RoundInputProps> = ({
   placeholder,
   onChangeText,
 }) => {
+  const [showCalender, setShowCalender] = useState(false);
   const [showPassword, setShowPassword] = useState(true);
   return (
     <View style={styles.container}>
@@ -83,6 +97,31 @@ const RoundInput: React.FC<RoundInputProps> = ({
                 <EyeWithLineIcon color="#9E9E9EB2" size={16} />
               )}
             </TouchableOpacity>
+          </View>
+        )}
+        {type === 'calendar' && (
+          <View style={styles.inputContainerWithIcon}>
+            <TextInput
+              style={[styles.input, styles.flex]}
+              editable={false}
+              placeholder={placeholder}
+              placeholderTextColor="#9E9E9E"
+            />
+            <TouchableOpacity
+              onPress={() => {
+                setShowCalender(true);
+              }}>
+              <CalendarIcon color="#9E9E9EB2" size={16} />
+            </TouchableOpacity>
+            {showCalender && (
+              <DateTimePicker
+                value={new Date()}
+                minimumDate={new Date()}
+                onChange={(event, selectedDate) => {
+                  setShowCalender(false);
+                }}
+              />
+            )}
           </View>
         )}
         {type === 'select' && (

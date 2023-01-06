@@ -16,6 +16,10 @@ const styles = StyleSheet.create({
   gradient: {
     borderRadius: 10,
   },
+  gradient2: {
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+  },
 });
 
 export default styles;
