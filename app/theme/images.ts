@@ -25,7 +25,7 @@ const Images = {
   i_bag: BagImage,
   i_bi_arrow: BiArrowImage,
   i_chart: ChartImage,
-  i_round: RoundImage
+  i_round: RoundImage,
 };
 
 export default Images;
