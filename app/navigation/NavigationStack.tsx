@@ -13,6 +13,7 @@ import ForgotPassword from 'app/screens/ForgotPassword';
 import Markets from 'app/screens/Markets';
 import CoinDetail from 'app/screens/CoinDetail';
 import ListToken from 'app/screens/ListToken';
+import Profile from 'app/screens/Profile';
 
 import {ILoginState} from 'app/models/reducers/login';
 
@@ -111,7 +112,7 @@ const HomeTab: React.FC = () => {
         />
         <Tab.Screen
           name="Portfolio"
-          component={Markets}
+          component={Profile}
           options={{
             tabBarIcon: ({color}) => (
               <View style={styles.center}>
