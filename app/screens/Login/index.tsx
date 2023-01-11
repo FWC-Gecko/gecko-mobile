@@ -26,6 +26,13 @@ const Login: React.FC = () => {
   const onSignUp = () => NavigationService.navigate('SignUp');
   const onForgot = () => NavigationService.navigate('ForgotPassword');
 
+  const onEmailChange = (email: string) => {
+    console.log(email);
+  };
+  const onPasswordChange = (password: string) => {
+    console.log(password);
+  };
+
   const onAppStateChange = useCallback((nextAppState: AppStateStatus) => {
     if (nextAppState !== 'active') {
       SplashScreen.show(); // <--- not working
@@ -60,13 +67,13 @@ const Login: React.FC = () => {
               type="email"
               label="Email Address"
               placeholder="Enter Email Address"
-              onChangeText={() => {}}
+              onChangeText={onEmailChange}
             />
             <RoundInput
               type="password"
               label="Password"
               placeholder="Enter Password"
-              onChangeText={() => {}}
+              onChangeText={onPasswordChange}
               comment="Minimum Length Of 8 Characters"
             />
             <TouchableOpacity onPress={onForgot}>
