@@ -26,7 +26,7 @@ interface RoundInputProps {
     | 'select'
     | 'calendar';
   placeholder: string;
-  onChangeText: () => void;
+  onChangeText: (text: string) => void;
   comment?: string;
 }
 
@@ -41,6 +41,7 @@ const RoundInput: React.FC<RoundInputProps> = ({
 }) => {
   const [showCalender, setShowCalender] = useState(false);
   const [showPassword, setShowPassword] = useState(true);
+  const [date, setDate] = useState(new Date());
   return (
     <View style={styles.container}>
       {label && label.length && <Text style={styles.label}>{label}</Text>}
@@ -102,6 +103,7 @@ const RoundInput: React.FC<RoundInputProps> = ({
         {type === 'calendar' && (
           <View style={styles.inputContainerWithIcon}>
             <TextInput
+              value={formattedDate(date)}
               style={[styles.input, styles.flex]}
               editable={false}
               placeholder={placeholder}
@@ -115,10 +117,15 @@ const RoundInput: React.FC<RoundInputProps> = ({
             </TouchableOpacity>
             {showCalender && (
               <DateTimePicker
-                value={new Date()}
-                minimumDate={new Date()}
+                value={date}
                 onChange={(event, selectedDate) => {
                   setShowCalender(false);
+                  setDate(selectedDate ? selectedDate : new Date());
+                  onChangeText(
+                    selectedDate
+                      ? formattedDate(selectedDate)
+                      : formattedDate(new Date()),
+                  );
                 }}
               />
             )}
@@ -128,8 +135,8 @@ const RoundInput: React.FC<RoundInputProps> = ({
           <SelectDropdown
             data={data}
             defaultButtonText={defaultButtonText}
-            onSelect={(selectedItem, index) => {
-              console.log(selectedItem, index);
+            onSelect={selectedItem => {
+              onChangeText(selectedItem);
             }}
             buttonStyle={styles.selectButtonStyle}
             buttonTextStyle={styles.selectButtonTextStyle}
@@ -147,5 +154,7 @@ const RoundInput: React.FC<RoundInputProps> = ({
     </View>
   );
 };
+
+const formattedDate = (date: Date) => date.toISOString().split('T')[0];
 
 export default RoundInput;

@@ -16,6 +16,10 @@ const Profile: React.FC<ProfileProps> = () => {
   const onAvatar = async () => {
     await launchImageLibrary({mediaType: 'photo'});
   };
+  //  Input Event
+  const onDateChange = (date: string) => {
+    console.log(date);
+  };
   return (
     <Background mode="default">
       <Header mode="profile" />
@@ -50,8 +54,8 @@ const Profile: React.FC<ProfileProps> = () => {
             <RoundInput
               type="calendar"
               label="Birthday"
-              placeholder="DD/MM/YYYY"
-              onChangeText={() => {}}
+              placeholder="YYYY/MM/DD"
+              onChangeText={onDateChange}
             />
             <RoundInput
               type="text"

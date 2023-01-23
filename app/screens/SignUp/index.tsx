@@ -23,6 +23,17 @@ const SignUp: React.FC = () => {
   const onLogin = () => NavigationService.navigate('LogIn');
   const onTermsOfUse = () => {};
   const onPrivacyPolicy = () => {};
+  const onSignUp = () => {};
+
+  const onEmailChange = (email: string) => {
+    console.log(email);
+  };
+  const onPasswordChange = (password: string) => {
+    console.log(password);
+  };
+  const onReferralIDChange = (id: string) => {
+    console.log(id);
+  };
   return (
     <Background mode="default">
       <KeyboardAwareScrollView>
@@ -36,22 +47,22 @@ const SignUp: React.FC = () => {
               type="email"
               label="Email Address"
               placeholder="Enter Email Address"
-              onChangeText={() => {}}
+              onChangeText={onEmailChange}
             />
             <RoundInput
               type="password"
               label="Password"
               placeholder="Enter Password"
-              onChangeText={() => {}}
+              onChangeText={onPasswordChange}
               comment="Minimum Length Of 8 Characters"
             />
             <RoundInput
               type="text"
               label="Referral ID(Optional)"
               placeholder="Enter Referral ID"
-              onChangeText={() => {}}
+              onChangeText={onReferralIDChange}
             />
-            <RoundButton title="Sign Up" onPress={() => {}} />
+            <RoundButton title="Sign Up" onPress={onSignUp} />
             <View style={styles.signupContainer}>
               <Text style={styles.signupTitle}>Already have an account? </Text>
               <TouchableOpacity onPress={onLogin}>

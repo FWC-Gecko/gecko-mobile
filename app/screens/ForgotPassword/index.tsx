@@ -20,6 +20,10 @@ const ForgotPassword: React.FC = () => {
   const dispatch = useDispatch();
   const onSend = () => {};
   const onBack = () => NavigationService.navigate('LogIn');
+
+  const onEmailChange = (email: string) => {
+    console.log(email);
+  };
   return (
     <Background mode="default">
       <View style={styles.container}>
@@ -33,7 +37,7 @@ const ForgotPassword: React.FC = () => {
               type="email"
               label="Email Address"
               placeholder="Enter Email Address"
-              onChangeText={() => {}}
+              onChangeText={onEmailChange}
             />
           </View>
           <View style={styles.element}>

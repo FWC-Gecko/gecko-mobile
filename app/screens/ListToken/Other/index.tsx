@@ -10,6 +10,10 @@ import RoundButton from 'app/components/RoundButton';
 import styles from './styles';
 
 const Other: React.FC = () => {
+  //  Input Event
+  const onSelectChange = (blockchain: string) => {
+    console.log(blockchain);
+  };
   return (
     <View style={styles.container}>
       <ScrollView style={styles.positionContainer}>
@@ -20,7 +24,7 @@ const Other: React.FC = () => {
               data={['bitcoin', 'ethereum', 'binance smart chain']}
               defaultButtonText="Select Blockchain"
               placeholder="Enter Token Ticker"
-              onChangeText={() => {}}
+              onChangeText={onSelectChange}
             />
             <RoundInput
               type="text"
