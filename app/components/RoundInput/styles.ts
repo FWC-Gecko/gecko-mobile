@@ -4,9 +4,6 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: 5,
   },
-  label: {
-    color: 'white',
-  },
   inputContainer: {
     backgroundColor: '#C4C4C422',
     borderRadius: 10,
@@ -21,7 +18,6 @@ const styles = StyleSheet.create({
   },
   input: {
     padding: 0,
-    color: 'white',
   },
   inputContainerWithIcon: {flexDirection: 'row', alignItems: 'center'},
   flex: {

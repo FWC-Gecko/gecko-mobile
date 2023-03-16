@@ -12,6 +12,8 @@ import Navigator from 'app/navigation';
 import configureStore from 'app/store';
 import {IThemeState} from 'app/models/reducers/theme';
 
+import ThemeContext from 'app/context/ThemeContext';
+
 const {persistor, store} = configureStore();
 
 interface IState {
@@ -22,7 +24,11 @@ const RootNavigation: React.FC = () => {
   const isDark = useSelector((state: IState) => state.themeReducer.isDark);
   const combinedTheme = isDark ? CombinedDarkTheme : CombinedDefaultTheme;
 
-  return <Navigator theme={combinedTheme} />;
+  return (
+    <ThemeContext.Provider value={combinedTheme}>
+      <Navigator theme={combinedTheme} />
+    </ThemeContext.Provider>
+  );
 };
 
 const EntryPoint: React.FC = () => {

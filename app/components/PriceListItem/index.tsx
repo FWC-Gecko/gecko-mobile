@@ -1,8 +1,7 @@
 import React from 'react';
-import {View, Image, Text} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {View, Image, Text, TouchableOpacity} from 'react-native';
 
-import Images from 'app/theme/images';
+import ThemeContext from 'app/context/ThemeContext';
 
 import styles from './styles';
 
@@ -25,27 +24,38 @@ const PriceListItem: React.FC<PriceListItemProps> = ({
 }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Image source={Images.bg_price_list_item} style={styles.bg} />
-      <View style={styles.content}>
-        <View style={styles.leftSide}>
-          <Image
-            source={{
-              uri: icon,
-            }}
-            style={styles.icon}
-          />
-          <View style={styles.leftRightSide}>
-            <Text style={styles.price}>{name}</Text>
-            <Text style={styles.marketcap}>{marketCap}</Text>
+      <ThemeContext.Consumer>
+        {theme => (
+          <View
+            style={[
+              styles.content,
+              {backgroundColor: theme.colors.itembackground},
+            ]}>
+            <View style={styles.leftSide}>
+              <Image
+                source={{
+                  uri: icon,
+                }}
+                style={styles.icon}
+              />
+              <View style={styles.leftRightSide}>
+                <Text style={[styles.price, {color: theme.colors.textcolor}]}>
+                  {name}
+                </Text>
+                <Text style={styles.marketcap}>{marketCap}</Text>
+              </View>
+            </View>
+            <View style={styles.middleSide}>
+              <Text style={[styles.price, {color: theme.colors.textcolor}]}>
+                {price}
+              </Text>
+            </View>
+            <View style={styles.rightSide}>
+              <Text style={styles.dayPercent}>{dayPercent}</Text>
+            </View>
           </View>
-        </View>
-        <View style={styles.middleSide}>
-          <Text style={styles.price}>{price}</Text>
-        </View>
-        <View style={styles.rightSide}>
-          <Text style={styles.dayPercent}>{dayPercent}</Text>
-        </View>
-      </View>
+        )}
+      </ThemeContext.Consumer>
     </TouchableOpacity>
   );
 };

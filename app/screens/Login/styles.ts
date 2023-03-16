@@ -4,14 +4,12 @@ const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     width,
     height: height - 30,
   },
   avatarBackground: {
     width,
     height: height / 3,
-    backgroundColor: '#C4C4C422',
     alignItems: 'center',
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
@@ -22,7 +20,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    color: 'white',
   },
   content: {
     marginVertical: 10,
@@ -36,10 +33,10 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   signupTitle: {
-    color: '#ffffffaa',
+    color: '#7D7582',
   },
   signup: {
-    color: '#ffffffaa',
+    color: '#7D7582',
     fontWeight: 'bold',
   },
   signupContainer: {

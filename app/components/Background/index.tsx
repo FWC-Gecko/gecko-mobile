@@ -1,45 +1,27 @@
 import React from 'react';
-import {View, Image} from 'react-native';
-import Images from 'app/theme/images';
+import {View} from 'react-native';
+
+import ThemeContext from 'app/context/ThemeContext';
 
 import styles from './styles';
 
 interface BackgroundProps {
   children: React.ReactNode;
-  mode: 'default' | 'gradient' | 'gradient2';
 }
 
-const Background: React.FC<BackgroundProps> = ({
-  children,
-  mode = 'default',
-}) => {
+const Background: React.FC<BackgroundProps> = ({children}) => {
   return (
-    <>
-      {mode === 'default' && (
-        <View style={styles.container}>
-          <Image style={styles.default} source={Images.bg_main} />
+    <ThemeContext.Consumer>
+      {theme => (
+        <View
+          style={[
+            styles.container,
+            {backgroundColor: theme.colors.background},
+          ]}>
           {children}
         </View>
       )}
-      {mode === 'gradient' && (
-        <View>
-          <Image
-            style={[styles.default, styles.gradient]}
-            source={Images.bg_gradient}
-          />
-          {children}
-        </View>
-      )}
-      {mode === 'gradient2' && (
-        <View>
-          <Image
-            style={[styles.default, styles.gradient2]}
-            source={Images.bg_gradient}
-          />
-          {children}
-        </View>
-      )}
-    </>
+    </ThemeContext.Consumer>
   );
 };
 

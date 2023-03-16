@@ -3,6 +3,8 @@ import {View, Pressable, Image, Text} from 'react-native';
 
 import Images from 'app/theme/images';
 
+import ThemeContext from 'app/context/ThemeContext';
+
 import styles from './styles';
 
 interface CustomAvatarProps {
@@ -24,31 +26,50 @@ const CustomAvatar: React.FC<CustomAvatarProps> = ({
 }) => {
   const onPress = () => {};
   return (
-    <View style={styles.container}>
-      {!avatar ? (
-        <Pressable onPress={onPress}>
-          <Image source={Images.profile_default_avatar} style={styles.avatar} />
-        </Pressable>
-      ) : (
-        <Image source={{uri: avatar}} style={styles.avatar} />
-      )}
+    <ThemeContext.Consumer>
+      {theme => (
+        <View style={styles.container}>
+          {!avatar ? (
+            <Pressable onPress={onPress}>
+              <Image
+                source={Images.profile_default_avatar}
+                style={styles.avatar}
+              />
+            </Pressable>
+          ) : (
+            <Image source={{uri: avatar}} style={styles.avatar} />
+          )}
 
-      <View>
-        {Stick ? (
-          <View style={styles.container}>
-            <Text style={[styles.title, {fontSize: titleSize}]}>{title}</Text>
-            <Stick />
+          <View>
+            {Stick ? (
+              <View style={styles.container}>
+                <Text
+                  style={[
+                    styles.title,
+                    {fontSize: titleSize, color: theme.colors.textcolor},
+                  ]}>
+                  {title}
+                </Text>
+                <Stick />
+              </View>
+            ) : (
+              <Text
+                style={[
+                  styles.title,
+                  {fontSize: titleSize, color: theme.colors.textcolor},
+                ]}>
+                {title}
+              </Text>
+            )}
+            {subtitle && subtitle.length && (
+              <Text style={[styles.subtitle, {fontSize: subtitleSize}]}>
+                {subtitle}
+              </Text>
+            )}
           </View>
-        ) : (
-          <Text style={[styles.title, {fontSize: titleSize}]}>{title}</Text>
-        )}
-        {subtitle && subtitle.length && (
-          <Text style={[styles.subtitle, {fontSize: subtitleSize}]}>
-            {subtitle}
-          </Text>
-        )}
-      </View>
-    </View>
+        </View>
+      )}
+    </ThemeContext.Consumer>
   );
 };
 

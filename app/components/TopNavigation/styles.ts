@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     padding: 5,
-    backgroundColor: '#212126',
     width: '100%',
     height: 40,
     flexDirection: 'row',
@@ -25,10 +24,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 5,
     borderRadius: 10,
-    backgroundColor: '#131316',
   },
   title: {
-    color: 'white',
     textAlign: 'center',
   },
 });

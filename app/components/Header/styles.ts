@@ -6,12 +6,6 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
   },
-  bg: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    resizeMode: 'stretch',
-  },
   content: {
     flex: 1,
     flexDirection: 'row',
@@ -24,7 +18,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: 32,
     height: 32,
-    backgroundColor: '#4E3564',
     margin: 5,
   },
   leftSide: {flex: 1, flexDirection: 'row', alignItems: 'center'},

@@ -6,6 +6,8 @@ import PriceList from 'app/components/PriceList';
 
 import {PlusIcon, EllipsisIcon} from 'app/theme/icons';
 
+import ThemeContext from 'app/context/ThemeContext';
+
 import styles from './styles';
 
 interface WatchlistsProps {}
@@ -16,29 +18,41 @@ const Watchlists: React.FC<WatchlistsProps> = () => {
   const onAdd = () => {};
   const onEllipsis = () => {};
   return (
-    <View style={styles.container}>
-      <View style={styles.row}>
-        <View style={styles.filterContainer}>
-          <FilterButton title="USD" onPress={onUSD} />
-          <FilterButton title="24%" onPress={on24Percent} />
-        </View>
-        <View style={styles.filterContainer}>
-          <TouchableOpacity onPress={onAdd}>
-            <View style={styles.button}>
-              <PlusIcon color="white" />
+    <ThemeContext.Consumer>
+      {theme => (
+        <View style={styles.container}>
+          <View style={styles.row}>
+            <View style={styles.filterContainer}>
+              <FilterButton title="USD" onPress={onUSD} />
+              <FilterButton title="24%" onPress={on24Percent} />
             </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={onEllipsis}>
-            <View style={styles.button}>
-              <EllipsisIcon color="white" />
+            <View style={styles.filterContainer}>
+              <TouchableOpacity onPress={onAdd}>
+                <View
+                  style={[
+                    styles.button,
+                    {backgroundColor: theme.colors.itembackground},
+                  ]}>
+                  <PlusIcon color={theme.colors.textcolor} />
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={onEllipsis}>
+                <View
+                  style={[
+                    styles.button,
+                    {backgroundColor: theme.colors.itembackground},
+                  ]}>
+                  <EllipsisIcon color={theme.colors.textcolor} />
+                </View>
+              </TouchableOpacity>
             </View>
-          </TouchableOpacity>
+          </View>
+          <View style={styles.container}>
+            <PriceList />
+          </View>
         </View>
-      </View>
-      <View style={styles.container}>
-        <PriceList />
-      </View>
-    </View>
+      )}
+    </ThemeContext.Consumer>
   );
 };
 

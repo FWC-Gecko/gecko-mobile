@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 50,
   },
-  title: {color: 'white', marginHorizontal: 10},
-  subtitle: {color: '#B9C1D9', marginHorizontal: 10},
+  title: {marginHorizontal: 10},
+  subtitle: {color: '#A7A7A7', marginHorizontal: 10},
 });
 
 export default styles;

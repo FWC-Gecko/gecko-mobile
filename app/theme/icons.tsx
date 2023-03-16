@@ -95,6 +95,14 @@ export const CalendarIcon: React.FC<FontIconProps> = ({color, size}) => (
   <AntDesignIcon name="calendar" color={color} size={size} />
 );
 
+export const SunIcon: React.FC<FontIconProps> = ({color, size}) => (
+  <IoniconsIcon name="sunny" color={color} size={size} />
+);
+
+export const MoonIcon: React.FC<FontIconProps> = ({color, size}) => (
+  <IoniconsIcon name="moon" color={color} size={size} />
+);
+
 export const BadgeIcon: React.FC<ImageIconProps> = ({size}) => (
   <Image source={Images.i_badge} style={{width: size, height: size}} />
 );

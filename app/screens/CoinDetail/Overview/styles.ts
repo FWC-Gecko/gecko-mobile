@@ -40,11 +40,10 @@ const styles = StyleSheet.create({
   },
   selectPeriod: {
     color: '#131316',
-    backgroundColor: 'white',
     borderRadius: 5,
     padding: 5,
   },
-  unSelectPeriod: {color: 'white', padding: 5},
+  unSelectPeriod: {padding: 5},
   chart: {
     width: '100%',
     marginVertical: 10,

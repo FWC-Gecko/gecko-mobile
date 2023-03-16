@@ -5,12 +5,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 35,
     marginVertical: 5,
-  },
-  bg: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    resizeMode: 'stretch',
+    backgroundColor: '#5B46DF',
     borderRadius: 20,
   },
   container: {
