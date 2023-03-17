@@ -107,20 +107,36 @@ export const BadgeIcon: React.FC<ImageIconProps> = ({size}) => (
   <Image source={Images.i_badge} style={{width: size, height: size}} />
 );
 
-export const BagIcon: React.FC<ImageIconProps> = ({size}) => (
-  <Image source={Images.i_bag} style={{width: size, height: size}} />
+export const BagDarkIcon: React.FC<ImageIconProps> = ({size}) => (
+  <Image source={Images.i_bag_dark} style={{width: size, height: size}} />
 );
 
-export const BiArrowIcon: React.FC<ImageIconProps> = ({size}) => (
-  <Image source={Images.i_bi_arrow} style={{width: size, height: size}} />
+export const BiArrowDarkIcon: React.FC<ImageIconProps> = ({size}) => (
+  <Image source={Images.i_bi_arrow_dark} style={{width: size, height: size}} />
 );
 
-export const RoundIcon: React.FC<ImageIconProps> = ({size}) => (
-  <Image source={Images.i_round} style={{width: size, height: size}} />
+export const RoundDarkIcon: React.FC<ImageIconProps> = ({size}) => (
+  <Image source={Images.i_round_dark} style={{width: size, height: size}} />
 );
 
-export const ChartIcon: React.FC<ImageIconProps> = ({size}) => (
-  <Image source={Images.i_chart} style={{width: size, height: size}} />
+export const ChartDarkIcon: React.FC<ImageIconProps> = ({size}) => (
+  <Image source={Images.i_chart_dark} style={{width: size, height: size}} />
+);
+
+export const BagLightIcon: React.FC<ImageIconProps> = ({size}) => (
+  <Image source={Images.i_bag_light} style={{width: size, height: size}} />
+);
+
+export const BiArrowLightIcon: React.FC<ImageIconProps> = ({size}) => (
+  <Image source={Images.i_bi_arrow_light} style={{width: size, height: size}} />
+);
+
+export const RoundLightIcon: React.FC<ImageIconProps> = ({size}) => (
+  <Image source={Images.i_round_light} style={{width: size, height: size}} />
+);
+
+export const ChartLightIcon: React.FC<ImageIconProps> = ({size}) => (
+  <Image source={Images.i_chart_light} style={{width: size, height: size}} />
 );
 
 export const DiamondIcon: React.FC<ImageIconProps> = ({size}) => (

@@ -26,7 +26,9 @@ const TopNavigation: React.FC<TopNavigationProps> = ({
   const onPage = (page: number) => {
     if (pageNumber !== page) {
       setPageNumber(page);
-      if (pagerViewRef.current) pagerViewRef.current.setPage(page);
+      if (pagerViewRef.current) {
+        pagerViewRef.current.setPage(page);
+      }
     }
   };
 
@@ -51,8 +53,7 @@ const TopNavigation: React.FC<TopNavigationProps> = ({
                   <Text
                     style={[
                       styles.title,
-                      {fontSize: titleSize},
-                      {color: theme.colors.textcolor},
+                      {fontSize: titleSize, color: theme.colors.textcolor},
                     ]}>
                     {page.title}
                   </Text>
@@ -65,8 +66,7 @@ const TopNavigation: React.FC<TopNavigationProps> = ({
                   <Text
                     style={[
                       styles.title,
-                      {fontSize: titleSize},
-                      {color: theme.colors.textcolor},
+                      {fontSize: titleSize, color: theme.colors.textcolor},
                     ]}>
                     {page.title}
                   </Text>

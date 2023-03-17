@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     zIndex: 2,
   },
-  priceTextOne: {color: '#C2C2C2', marginHorizontal: 5},
-  priceTextThree: {color: 'white', fontSize: 18},
+  priceTextOne: {color: '#9E9E9E', marginHorizontal: 5},
+  priceTextThree: {fontSize: 18},
   priceLeftSide: {
     flex: 1,
   },
@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
   selectPeriod: {
-    color: '#131316',
     borderRadius: 5,
     padding: 5,
   },
@@ -55,9 +54,6 @@ const styles = StyleSheet.create({
     color: 'white',
     marginLeft: 30,
     fontSize: 12,
-  },
-  chartYAxis: {
-    color: '#EFEFEF',
   },
   bottomRightSide: {
     flex: 1,

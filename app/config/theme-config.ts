@@ -6,11 +6,13 @@ import {
 export const CombinedDefaultTheme = {
   ...NavigationDefaultTheme,
   colors: {
-    background: '#ffffff',
+    background: '#FFFFFF',
     itembackground: '#EFEFEF',
     subitembackground: '#FFFFFF',
     itemcolor: '#9E9E9E',
     textcolor: '#000000',
+    bottombackground: '#FFFFFF',
+    elementbackground: '#EFEFEF',
   },
 };
 
@@ -23,7 +25,7 @@ export const CombinedDarkTheme = {
     subitembackground: '#332C4F',
     itemcolor: '#FFFFFF',
     textcolor: '#FFFFFF',
-    card: '#222222',
-    text: '#ffffff',
+    bottombackground: '#212126',
+    elementbackground: '#C4C4C422',
   },
 };

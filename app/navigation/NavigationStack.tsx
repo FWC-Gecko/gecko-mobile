@@ -17,6 +17,8 @@ import Profile from 'app/screens/Profile';
 
 import {ILoginState} from 'app/models/reducers/login';
 
+import ThemeContext from 'app/context/ThemeContext';
+
 import {
   CoinsIcon,
   SearchIcon,
@@ -74,66 +76,77 @@ const MarketsNavigator = () => {
 
 const HomeTab: React.FC = () => {
   return (
-    <View style={styles.container}>
-      <Tab.Navigator
-        screenOptions={{
-          tabBarStyle: {
-            position: 'absolute',
-            borderTopWidth: 0,
-            paddingBottom: 3,
-          },
-          tabBarBackground: () => <View style={styles.tabBarBackground} />,
-          headerShown: false,
-          tabBarActiveTintColor: '#5B7FED',
-          tabBarInactiveTintColor: '#B9C1D9',
-          tabBarShowLabel: true,
-        }}>
-        <Tab.Screen
-          name="Markets"
-          component={MarketsNavigator}
-          options={{
-            tabBarIcon: ({color}) => (
-              <View style={styles.center}>
-                <CoinsIcon color={color} size={16} />
-              </View>
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Explore"
-          component={ListToken}
-          options={{
-            tabBarIcon: ({color}) => (
-              <View style={styles.center}>
-                <SearchIcon color={color} size={16} />
-              </View>
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Portfolio"
-          component={Profile}
-          options={{
-            tabBarIcon: ({color}) => (
-              <View style={styles.center}>
-                <GraphPieIcon color={color} size={18} />
-              </View>
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Community"
-          component={Markets}
-          options={{
-            tabBarIcon: ({color}) => (
-              <View style={styles.center}>
-                <AccessPointIcon color={color} size={20} />
-              </View>
-            ),
-          }}
-        />
-      </Tab.Navigator>
-    </View>
+    <ThemeContext.Consumer>
+      {theme => (
+        <View style={styles.container}>
+          <Tab.Navigator
+            screenOptions={{
+              tabBarStyle: {
+                position: 'absolute',
+                borderTopWidth: 0,
+                paddingBottom: 3,
+              },
+              tabBarBackground: () => (
+                <View
+                  style={[
+                    styles.tabBarBackground,
+                    {backgroundColor: theme.colors.bottombackground},
+                  ]}
+                />
+              ),
+              headerShown: false,
+              tabBarActiveTintColor: '#5B7FED',
+              tabBarInactiveTintColor: '#B9C1D9',
+              tabBarShowLabel: true,
+            }}>
+            <Tab.Screen
+              name="Markets"
+              component={MarketsNavigator}
+              options={{
+                tabBarIcon: ({color}) => (
+                  <View style={styles.center}>
+                    <CoinsIcon color={color} size={16} />
+                  </View>
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="Explore"
+              component={ListToken}
+              options={{
+                tabBarIcon: ({color}) => (
+                  <View style={styles.center}>
+                    <SearchIcon color={color} size={16} />
+                  </View>
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="Portfolio"
+              component={Profile}
+              options={{
+                tabBarIcon: ({color}) => (
+                  <View style={styles.center}>
+                    <GraphPieIcon color={color} size={18} />
+                  </View>
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="Community"
+              component={Markets}
+              options={{
+                tabBarIcon: ({color}) => (
+                  <View style={styles.center}>
+                    <AccessPointIcon color={color} size={20} />
+                  </View>
+                ),
+              }}
+            />
+          </Tab.Navigator>
+        </View>
+      )}
+    </ThemeContext.Consumer>
   );
 };
 
@@ -164,7 +177,6 @@ const styles = StyleSheet.create({
   },
   tabBarBackground: {
     flex: 1,
-    backgroundColor: '#212126',
   },
   center: {
     alignItems: 'center',

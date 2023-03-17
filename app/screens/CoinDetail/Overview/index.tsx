@@ -1,19 +1,12 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, Pressable, Image} from 'react-native';
+import {View, Text, TouchableOpacity, Pressable} from 'react-native';
 import {LineChart} from 'react-native-gifted-charts';
 
-import {
-  SwapVertIcon,
-  UpIcon,
-  BellIcon,
-  DownIcon,
-  BadgeIcon,
-} from 'app/theme/icons';
+import {SwapVertIcon, BellIcon, BadgeIcon} from 'app/theme/icons';
 
 import PercentPad from 'app/components/PercentPad';
 import CustomAvatar from 'app/components/CustomAvatar';
 import RoundButton from 'app/components/RoundButton';
-import Background from 'app/components/Background';
 import UDPad from 'app/components/UDPad';
 
 import ThemeContext from 'app/context/ThemeContext';
@@ -92,7 +85,13 @@ const Overview: React.FC = () => {
           <View style={styles.priceContainer}>
             <View style={styles.priceLeftSide}>
               <Text style={styles.priceTextOne}>Tether</Text>
-              <Text style={styles.priceTextThree}>$1.000</Text>
+              <Text
+                style={[
+                  styles.priceTextThree,
+                  {color: theme.colors.textcolor},
+                ]}>
+                $1.000
+              </Text>
               <View style={styles.priceLeftSmallSide}>
                 <SwapVertIcon color="#C2C2C2" />
                 <Text style={styles.priceTextOne}>0.00005954</Text>
@@ -101,7 +100,11 @@ const Overview: React.FC = () => {
             </View>
             <View style={styles.priceRightSide}>
               <TouchableOpacity>
-                <View style={styles.priceRightSmallSide}>
+                <View
+                  style={[
+                    styles.priceRightSmallSide,
+                    {backgroundColor: theme.colors.itembackground},
+                  ]}>
                   <BellIcon color="#5B46DF" size={16} />
                 </View>
               </TouchableOpacity>
@@ -140,33 +143,31 @@ const Overview: React.FC = () => {
             </View>
             {/* Chart */}
             <View style={styles.chart}>
-              <Background mode="gradient">
-                <View style={styles.chartSmall}>
-                  <LineChart
-                    thickness={2}
-                    color="#FF2CDF"
-                    maxValue={100}
-                    noOfSections={6}
-                    areaChart
-                    yAxisTextStyle={styles.chartYAxis}
-                    data={data}
-                    data2={data1}
-                    color2={'#56acce'}
-                    startFillColor={'#FEF0EE'}
-                    endFillColor={'#FEF0EE'}
-                    startOpacity={0.2}
-                    endOpacity={0.01}
-                    spacing={80}
-                    rulesColor="gray"
-                    rulesType="solid"
-                    initialSpacing={10}
-                    hideDataPoints
-                    hideRules
-                    xAxisColor={'#FFFFFF00'}
-                    yAxisColor={'#FFFFFF00'}
-                  />
-                </View>
-              </Background>
+              <View style={styles.chartSmall}>
+                <LineChart
+                  thickness={2}
+                  color="#FF2CDF"
+                  color2="#56acce"
+                  maxValue={100}
+                  noOfSections={6}
+                  areaChart
+                  xAxisLabelTextStyle={{color: theme.colors.textcolor}}
+                  yAxisTextStyle={{color: theme.colors.textcolor}}
+                  data={data}
+                  data2={data1}
+                  startFillColor="#5200FF"
+                  endFillColor="#FEF0EE"
+                  startOpacity={0.3}
+                  endOpacity={0.01}
+                  spacing={70}
+                  rulesType="solid"
+                  initialSpacing={10}
+                  hideDataPoints
+                  hideRules
+                  xAxisColor="#FFFFFF00"
+                  yAxisColor="#FFFFFF00"
+                />
+              </View>
             </View>
           </View>
           {/* Bottom */}

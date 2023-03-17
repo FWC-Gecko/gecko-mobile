@@ -131,7 +131,11 @@ const RoundInput: React.FC<RoundInputProps> = ({
               <View style={styles.inputContainerWithIcon}>
                 <TextInput
                   value={formattedDate(date)}
-                  style={[styles.input, styles.flex]}
+                  style={[
+                    styles.input,
+                    styles.flex,
+                    {color: theme.colors.textcolor},
+                  ]}
                   editable={false}
                   placeholder={placeholder}
                   placeholderTextColor="#9E9E9E"
