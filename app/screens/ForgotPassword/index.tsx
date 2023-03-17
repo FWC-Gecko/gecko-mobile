@@ -6,9 +6,10 @@ import * as loginActions from 'app/store/actions/loginActions';
 import styles from './styles';
 import {ILoginState} from 'app/models/reducers/login';
 import NavigationService from 'app/navigation/NavigationService';
-import Background from 'app/components/Background';
+
 import RoundInput from 'app/components/RoundInput';
 import RoundButton from 'app/components/RoundButton';
+
 import Images from 'app/theme/images';
 
 interface IState {
@@ -25,30 +26,29 @@ const ForgotPassword: React.FC = () => {
     console.log(email);
   };
   return (
-    <Background mode="default">
-      <View style={styles.container}>
-        <View style={styles.avatarBackground}>
-          <Image source={Images.avatar} style={styles.avatar} />
+    <View style={styles.container}>
+      <View style={styles.avatarBackground}>
+        <Image source={Images.avatar} style={styles.avatar} />
+      </View>
+      <View style={styles.content}>
+        <Text style={styles.title}>Forgot Password</Text>
+        <View style={styles.element}>
+          <RoundInput
+            type="email"
+            label="Email Address"
+            placeholder="Enter Email Address"
+            onChangeText={onEmailChange}
+            onSubmitEditing={() => {}}
+          />
         </View>
-        <View style={styles.content}>
-          <Text style={styles.title}>Forgot Password</Text>
-          <View style={styles.element}>
-            <RoundInput
-              type="email"
-              label="Email Address"
-              placeholder="Enter Email Address"
-              onChangeText={onEmailChange}
-            />
-          </View>
-          <View style={styles.element}>
-            <RoundButton title="Send" onPress={onSend} />
-          </View>
-          <View style={styles.element}>
-            <RoundButton title="Back" onPress={onBack} />
-          </View>
+        <View style={styles.element}>
+          <RoundButton title="Send" onPress={onSend} />
+        </View>
+        <View style={styles.element}>
+          <RoundButton title="Back" onPress={onBack} />
         </View>
       </View>
-    </Background>
+    </View>
   );
 };
 

@@ -13,7 +13,7 @@ interface PageProps {
 
 interface TopNavigationProps {
   pages: PageProps[];
-  titleSize: number;
+  titleSize?: number;
 }
 
 const TopNavigation: React.FC<TopNavigationProps> = ({

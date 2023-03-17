@@ -12,7 +12,6 @@ import SignUp from 'app/screens/SignUp';
 import ForgotPassword from 'app/screens/ForgotPassword';
 import Markets from 'app/screens/Markets';
 import CoinDetail from 'app/screens/CoinDetail';
-import ListToken from 'app/screens/ListToken';
 import Profile from 'app/screens/Profile';
 
 import {ILoginState} from 'app/models/reducers/login';
@@ -21,9 +20,9 @@ import ThemeContext from 'app/context/ThemeContext';
 
 import {
   CoinsIcon,
-  SearchIcon,
   GraphPieIcon,
   AccessPointIcon,
+  SearchIcon,
 } from 'app/theme/icons';
 
 const Stack = createStackNavigator();
@@ -112,7 +111,7 @@ const HomeTab: React.FC = () => {
             />
             <Tab.Screen
               name="Explore"
-              component={ListToken}
+              component={Profile}
               options={{
                 tabBarIcon: ({color}) => (
                   <View style={styles.center}>

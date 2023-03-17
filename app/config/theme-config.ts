@@ -13,6 +13,7 @@ export const CombinedDefaultTheme = {
     textcolor: '#000000',
     bottombackground: '#FFFFFF',
     elementbackground: '#EFEFEF',
+    bordercolor: '#4B4950',
   },
 };
 
@@ -27,5 +28,6 @@ export const CombinedDarkTheme = {
     textcolor: '#FFFFFF',
     bottombackground: '#212126',
     elementbackground: '#C4C4C422',
+    bordercolor: '#FFFFFF',
   },
 };

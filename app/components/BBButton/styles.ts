@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
   },
   light: {
     borderWidth: 1,
-    borderColor: 'white',
     backgroundColor: 'transparent',
   },
   bullishDark: {

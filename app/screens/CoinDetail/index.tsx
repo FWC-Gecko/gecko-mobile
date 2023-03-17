@@ -8,7 +8,6 @@ import Overview from './Overview';
 import LiveChat from './LiveChat';
 import HistoricalData from './HistoricalData';
 
-import Background from 'app/components/Background';
 import Header from 'app/components/Header';
 import TopNavigation from 'app/components/TopNavigation';
 
@@ -22,29 +21,27 @@ const CoinDetail: React.FC = () => {
   const id = useSelector((state: IState) => state.loginReducer.id);
   const dispatch = useDispatch();
   return (
-    <Background mode="default">
-      <View style={styles.container}>
-        <Header mode="detail" />
-        <View style={styles.content}>
-          <TopNavigation
-            pages={[
-              {
-                title: 'Overview',
-                component: () => <Overview />,
-              },
-              {
-                title: 'Live Chat',
-                component: () => <LiveChat />,
-              },
-              {
-                title: 'Historical Data',
-                component: () => <HistoricalData />,
-              },
-            ]}
-          />
-        </View>
+    <View style={styles.container}>
+      <Header mode="detail" />
+      <View style={styles.content}>
+        <TopNavigation
+          pages={[
+            {
+              title: 'Overview',
+              component: () => <Overview />,
+            },
+            {
+              title: 'Live Chat',
+              component: () => <LiveChat />,
+            },
+            {
+              title: 'Historical Data',
+              component: () => <HistoricalData />,
+            },
+          ]}
+        />
       </View>
-    </Background>
+    </View>
   );
 };
 

@@ -4,8 +4,8 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: 5,
   },
-  contentContainer: {alignItems: 'flex-start', padding: 10},
-  description: {color: 'white', marginVertical: 3},
+  contentContainer: {alignItems: 'flex-start', padding: 10, borderRadius: 10},
+  description: {marginVertical: 3},
   readAllContainer: {alignItems: 'flex-end', width: '100%', marginVertical: 5},
   readAll: {color: '#BA4DF9'},
   splitter: {

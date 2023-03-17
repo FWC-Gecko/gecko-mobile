@@ -7,8 +7,9 @@ import {ILoginState} from 'app/models/reducers/login';
 import CustomAvatar from 'app/components/CustomAvatar';
 import BBButton from 'app/components/BBButton';
 import RoundInput from 'app/components/RoundInput';
-import Background from 'app/components/Background';
 import Comment from 'app/components/Comment';
+
+import ThemeContext from 'app/context/ThemeContext';
 
 import styles from './styles';
 
@@ -22,34 +23,43 @@ const LiveChat: React.FC = () => {
   const onBullish = () => {};
   const onBearish = () => {};
   return (
-    <View style={styles.container}>
-      {/* Chat Box */}
-      <Background mode="gradient">
-        <View style={styles.chatContainer}>
-          <Text style={styles.chatText}>Live Tether Chat</Text>
-          <View>
-            <View style={styles.chatTopSide}>
-              <CustomAvatar title="Phillip" />
-              <View style={styles.chatBBContainer}>
-                <BBButton mode="bullish" color="light" onPress={onBullish} />
-                <BBButton mode="bearish" color="light" onPress={onBearish} />
+    <ThemeContext.Consumer>
+      {theme => (
+        <View style={styles.container}>
+          {/* Chat Box */}
+          <View
+            style={[
+              styles.chatContainer,
+              {backgroundColor: theme.colors.elementbackground},
+            ]}>
+            <Text style={[styles.chatText, {color: theme.colors.textcolor}]}>
+              Live Tether Chat
+            </Text>
+            <View>
+              <View style={styles.chatTopSide}>
+                <CustomAvatar title="Phillip" />
+                <View style={styles.chatBBContainer}>
+                  <BBButton mode="bullish" color="light" onPress={onBullish} />
+                  <BBButton mode="bearish" color="light" onPress={onBearish} />
+                </View>
               </View>
             </View>
+            <View>
+              <RoundInput
+                type="text"
+                placeholder="How do you feel about Tether today?"
+                onChangeText={() => {}}
+                onSubmitEditing={() => {}}
+              />
+            </View>
           </View>
-          <View>
-            <RoundInput
-              type="text"
-              placeholder="How do you feel about Tether today?"
-              onChangeText={() => {}}
-            />
+          {/* Comment */}
+          <View style={styles.commentContainer}>
+            <FlatList data={['1', '2']} renderItem={() => <Comment />} />
           </View>
         </View>
-      </Background>
-      {/* Comment */}
-      <View style={styles.commentContainer}>
-        <FlatList data={['1', '2']} renderItem={() => <Comment />} />
-      </View>
-    </View>
+      )}
+    </ThemeContext.Consumer>
   );
 };
 

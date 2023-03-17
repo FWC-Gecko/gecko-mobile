@@ -17,7 +17,6 @@ import {ILoginState} from 'app/models/reducers/login';
 import NavigationService from 'app/navigation/NavigationService';
 import RoundInput from 'app/components/RoundInput';
 import RoundButton from 'app/components/RoundButton';
-import Background from 'app/components/Background';
 
 import ThemeContext from 'app/context/ThemeContext';
 
@@ -68,72 +67,70 @@ const Login: React.FC = () => {
   }, []);
 
   return (
-    <Background>
-      <KeyboardAwareScrollView>
-        <ThemeContext.Consumer>
-          {theme => (
-            <View style={styles.container}>
-              <View style={styles.avatarBackground}>
-                <Image source={Images.avatar} style={styles.avatar} />
-              </View>
-              <View style={styles.content}>
-                <Text
-                  style={[styles.title, {color: theme.colors.textcolor}]}
-                  testID="signInLabel">
-                  Sign In
+    <ThemeContext.Consumer>
+      {theme => (
+        <KeyboardAwareScrollView>
+          <View style={styles.container}>
+            <View style={styles.avatarBackground}>
+              <Image source={Images.avatar} style={styles.avatar} />
+            </View>
+            <View style={styles.content}>
+              <Text
+                style={[styles.title, {color: theme.colors.textcolor}]}
+                testID="signInLabel">
+                Sign In
+              </Text>
+              <RoundInput
+                type="email"
+                label="Email Address"
+                placeholder="Enter Email Address"
+                onChangeText={onEmailChange}
+                onRefInput={ref => {
+                  emailInput.current = ref;
+                }}
+                onSubmitEditing={() => {
+                  // console.log('1');
+                  passwordInput.current?.focus();
+                }}
+                testID="emailInput"
+              />
+              <RoundInput
+                type="password"
+                label="Password"
+                placeholder="Enter Password"
+                onChangeText={onPasswordChange}
+                comment="Minimum Length Of 8 Characters"
+                onRefInput={ref => {
+                  passwordInput.current = ref;
+                }}
+                onSubmitEditing={onLogin}
+                testID="passwordInput"
+              />
+              <TouchableOpacity onPress={onForgot}>
+                <Text style={styles.forgot} testID="forgotPasswordLabel">
+                  Forgot password?
                 </Text>
-                <RoundInput
-                  type="email"
-                  label="Email Address"
-                  placeholder="Enter Email Address"
-                  onChangeText={onEmailChange}
-                  onRefInput={ref => {
-                    emailInput.current = ref;
-                  }}
-                  onSubmitEditing={() => {
-                    // console.log('1');
-                    passwordInput.current?.focus();
-                  }}
-                  testID="emailInput"
-                />
-                <RoundInput
-                  type="password"
-                  label="Password"
-                  placeholder="Enter Password"
-                  onChangeText={onPasswordChange}
-                  comment="Minimum Length Of 8 Characters"
-                  onRefInput={ref => {
-                    passwordInput.current = ref;
-                  }}
-                  onSubmitEditing={onLogin}
-                  testID="passwordInput"
-                />
-                <TouchableOpacity onPress={onForgot}>
-                  <Text style={styles.forgot} testID="forgotPasswordLabel">
-                    Forgot password?
+              </TouchableOpacity>
+              <RoundButton
+                title="Sign In"
+                onPress={onLogin}
+                testID="loginButton"
+              />
+              <View style={styles.signupContainer}>
+                <Text style={styles.signupTitle} testID="signUpTitle">
+                  You don't have an account?{' '}
+                </Text>
+                <TouchableOpacity onPress={onSignUp}>
+                  <Text style={styles.signup} testID="signUpLabel">
+                    Sign Up
                   </Text>
                 </TouchableOpacity>
-                <RoundButton
-                  title="Sign In"
-                  onPress={onLogin}
-                  testID="loginButton"
-                />
-                <View style={styles.signupContainer}>
-                  <Text style={styles.signupTitle} testID="signUpTitle">
-                    You don't have an account?{' '}
-                  </Text>
-                  <TouchableOpacity onPress={onSignUp}>
-                    <Text style={styles.signup} testID="signUpLabel">
-                      Sign Up
-                    </Text>
-                  </TouchableOpacity>
-                </View>
               </View>
             </View>
-          )}
-        </ThemeContext.Consumer>
-      </KeyboardAwareScrollView>
-    </Background>
+          </View>
+        </KeyboardAwareScrollView>
+      )}
+    </ThemeContext.Consumer>
   );
 };
 

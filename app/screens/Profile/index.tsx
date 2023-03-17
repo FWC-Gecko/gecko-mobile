@@ -2,11 +2,12 @@ import React from 'react';
 import {View, Text, Image, TouchableOpacity, ScrollView} from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
 
-import Background from 'app/components/Background';
 import Header from 'app/components/Header';
 import RoundInput from 'app/components/RoundInput';
 
 import Images from 'app/theme/images';
+
+import ThemeContext from 'app/context/ThemeContext';
 
 import styles from './styles';
 
@@ -21,64 +22,78 @@ const Profile: React.FC<ProfileProps> = () => {
     console.log(date);
   };
   return (
-    <Background mode="default">
-      <Header mode="profile" />
-      <View style={styles.avatarContainer}>
-        <TouchableOpacity onPress={onAvatar}>
-          <Image source={Images.profile_default_avatar} style={styles.avatar} />
-        </TouchableOpacity>
-        <Text style={styles.name}>Jazhe</Text>
-        <Text style={styles.smallName}>Sutfgp2ymgqj</Text>
-      </View>
-      <View style={styles.contentContainer}>
-        <Background mode="gradient2">
-          <ScrollView style={styles.contentSmallContainer}>
-            <RoundInput
-              type="text"
-              label="Display Name"
-              placeholder="Name"
-              onChangeText={() => {}}
-            />
-            <RoundInput
-              type="text"
-              label="User Name"
-              placeholder="User Name"
-              onChangeText={() => {}}
-            />
-            <RoundInput
-              type="text"
-              label="Biography"
-              placeholder="A brief introduction about yourself"
-              onChangeText={() => {}}
-            />
-            <RoundInput
-              type="calendar"
-              label="Birthday"
-              placeholder="YYYY/MM/DD"
-              onChangeText={onDateChange}
-            />
-            <RoundInput
-              type="text"
-              label="Website"
-              placeholder="Add your website"
-              onChangeText={() => {}}
-            />
-            <RoundInput
-              type="text"
-              label="Coinmarketcap Url"
-              placeholder="Enter coinmarketcap url"
-              onChangeText={() => {}}
-            />
-            <RoundInput
-              type="text"
-              label="Referral Code"
-              placeholder="Enter Referral Code"
-              onChangeText={() => {}}
-            />
-          </ScrollView>
-        </Background>
-      </View>
-    </Background>
+    <ThemeContext.Consumer>
+      {theme => (
+        <View style={styles.container}>
+          <Header mode="profile" />
+          <View style={styles.avatarContainer}>
+            <TouchableOpacity onPress={onAvatar}>
+              <Image
+                source={Images.profile_default_avatar}
+                style={styles.avatar}
+              />
+            </TouchableOpacity>
+            <Text style={[styles.name, {color: theme.colors.textcolor}]}>
+              Jazhe
+            </Text>
+            <Text style={styles.smallName}>Sutfgp2ymgqj</Text>
+          </View>
+          <View style={styles.contentContainer}>
+            <ScrollView style={styles.contentSmallContainer}>
+              <RoundInput
+                type="text"
+                label="Display Name"
+                placeholder="Name"
+                onChangeText={() => {}}
+                onSubmitEditing={() => {}}
+              />
+              <RoundInput
+                type="text"
+                label="User Name"
+                placeholder="User Name"
+                onChangeText={() => {}}
+                onSubmitEditing={() => {}}
+              />
+              <RoundInput
+                type="text"
+                label="Biography"
+                placeholder="A brief introduction about yourself"
+                onChangeText={() => {}}
+                onSubmitEditing={() => {}}
+              />
+              <RoundInput
+                type="calendar"
+                label="Birthday"
+                placeholder="YYYY/MM/DD"
+                onChangeText={onDateChange}
+                onSubmitEditing={() => {}}
+              />
+              <RoundInput
+                type="text"
+                label="Website"
+                placeholder="Add your website"
+                onChangeText={() => {}}
+                onSubmitEditing={() => {}}
+              />
+              <RoundInput
+                type="text"
+                label="Coinmarketcap Url"
+                placeholder="Enter coinmarketcap url"
+                onChangeText={() => {}}
+                onSubmitEditing={() => {}}
+              />
+              <RoundInput
+                type="text"
+                label="Referral Code"
+                placeholder="Enter Referral Code"
+                onChangeText={() => {}}
+                onSubmitEditing={() => {}}
+              />
+            </ScrollView>
+          </View>
+        </View>
+      )}
+    </ThemeContext.Consumer>
   );
 };
 

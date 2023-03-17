@@ -28,7 +28,7 @@ interface RoundInputProps {
     | 'calendar';
   placeholder: string;
   onChangeText: (text: string) => void;
-  onRefInput: (ref: any) => void;
+  onRefInput?: (ref: any) => void;
   onSubmitEditing: () => void;
   comment?: string;
   testID?: string;
